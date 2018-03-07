@@ -5,19 +5,15 @@ import gql from 'graphql-tag'
 
 class LinkList extends Component {
   render() {
-    // 1
     if (this.props.feedQuery && this.props.feedQuery.loading) {
       return <div>Loading</div>
     }
 
-    // 2
     if (this.props.feedQuery && this.props.feedQuery.error) {
       return <div>Error</div>
     }
 
-    // 3
     const linksToRender = this.props.feedQuery.feed.links
-
     return (
       <div>{linksToRender.map(link => <Link key={link.id} link={link} />)}</div>
     )
